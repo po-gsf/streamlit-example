@@ -6,6 +6,24 @@ import streamlit as st
 
 
 ##############################################################
+# Main
+st.header('Docker link')
+st.caption('https://po-gsf-streamlit-example-main-app-x6n3wn.streamlit.app/')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##############################################################
 # example
 ##############################################################
 def initView() :
@@ -193,12 +211,16 @@ def display_progress_and_status():
 
 ##############################################################
 # 정상동작 되는 함수들
+"""
 initView()
 initComponent()
 columns()
 tap()
 controlFlow()
 displayCode()
+"""
+
+
 
 
 

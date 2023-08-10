@@ -3,16 +3,53 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
+import numpy as np
 
 
 ##############################################################
-# Main
-st.header('Docker link')
+# Main ~
+##############################################################
+
+def initMainUI() :
+    st.header('to Search')
+    st.selectbox('selected Coin', ['bitcoin','doge','luna']) # todo : insert coin list
+    initTab()
+    return
+
+def initTab() :
+    tab_time, tab_day, tab_wekk, tab_month, = st.tabs(["time", "day", "week", "month"])
+
+    with tab_time:
+        initGraph()
+    with tab_day:
+        initGraph()
+    with tab_wekk:
+        initGraph()
+    with tab_month:
+        initGraph()
+    return
+
+def initGraph() : # todo : insert data
+    progress_bar = st.sidebar.progress(0)
+    status_text = st.sidebar.empty()
+    last_rows = np.random.randn(1, 1)
+    chart = st.line_chart(last_rows)
+
+    for i in range(1, 101):
+        new_rows = last_rows[-1, :] + np.random.randn(5, 1).cumsum(axis=0)
+        status_text.text("%i%% Complete" % i)
+        chart.add_rows(new_rows)
+        progress_bar.progress(i)
+        last_rows = new_rows
+
+    progress_bar.empty()
+
+initMainUI()
+
 st.caption('https://po-gsf-streamlit-example-main-app-x6n3wn.streamlit.app/')
-
-
-
-
+##############################################################
+# ~ Main
+##############################################################
 
 
 

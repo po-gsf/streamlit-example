@@ -68,7 +68,7 @@ def initInfoColumn() :
 
 initMainUI()
 
-st.caption('https://po-gsf-streamlit-example-main-app-x6n3wn.streamlit.app/')
+st.caption('https://app-example-cmnc7aszgrlrlcwhqyjey2.streamlit.app/')
 ##############################################################
 # ~ Main
 ##############################################################

@@ -1,3 +1,3 @@
 # Welcome to ChatGSF!
 
-# docker container url : https://po-gsf-streamlit-example-main-app-x6n3wn.streamlit.app/
+# docker container url : https://app-example-cmnc7aszgrlrlcwhqyjey2.streamlit.app/

@@ -7,23 +7,24 @@ import numpy as np
 
 
 ##############################################################
-# Main ~
+# Main func ~
 ##############################################################
 
 def initMainUI() :
     st.header('to Search')
     st.selectbox('selected Coin', ['bitcoin','doge','luna']) # todo : insert coin list
-    initTab()
+    initTabGraph()
+    initTabPriceInfo()
     return
 
-def initTab() :
-    tab_time, tab_day, tab_wekk, tab_month, = st.tabs(["time", "day", "week", "month"])
+def initTabGraph() :
+    tab_time, tab_day, tab_week, tab_month, = st.tabs(["time", "day", "week", "month"])
 
     with tab_time:
         initGraph()
     with tab_day:
         initGraph()
-    with tab_wekk:
+    with tab_week:
         initGraph()
     with tab_month:
         initGraph()
@@ -43,6 +44,27 @@ def initGraph() : # todo : insert data
         last_rows = new_rows
 
     progress_bar.empty()
+
+def initTabPriceInfo() :
+    tab_bid_ask, tab_order, tab_stock = st.tabs(["bid-ask price", "order", "stock price"])
+
+    with tab_bid_ask:
+        initInfoColumn()
+    with tab_order:
+        initInfoColumn()
+    with tab_stock:
+        initInfoColumn()
+    return
+
+def initInfoColumn() :
+    df = pd.DataFrame(
+    np.random.randn(10, 5),
+    columns=('col %d' % i for i in range(5)))
+
+    st.table(df)
+    return 
+
+
 
 initMainUI()
 

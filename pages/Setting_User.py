@@ -11,11 +11,14 @@ import requests
 baseHeaders = {"accept":"application/json"}
 server_url = 'http://127.0.0.1:8000'
 
-def postKey(accessKey: str, secretKey: str):
-    response = requests.post(server_url +'/postPrivatekey', 
-                      json={'accessKey':accessKey,
-                            'secretKey':secretKey})
-    print(response.text)
+def postPrivateKey(accessKey: str, secretKey: str):
+    try:
+        response = requests.post(server_url +'/postPrivatekey', 
+                        json={'accessKey':accessKey,
+                                'secretKey':secretKey})
+        print(response.text)
+    except Exception as e:
+        print("Error occurred: ", e)
     return
 
 ##############################################################
@@ -69,7 +72,7 @@ def setPrivateKeyInServer() :
     print('=========================')
     print(privateKey.accessKey)
     print(privateKey.secretKey)
-    postKey(privateKey.accessKey, privateKey.secretKey)
+    postPrivateKey(privateKey.accessKey, privateKey.secretKey)
     return
 
 initMainUI()
